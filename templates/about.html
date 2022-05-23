@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}About{% endblock title %}
+
+{% block body %}
+<style>
+.rounded-borders {
+    width: 150px;
+    height: 150px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 75px;
+    box-shadow: 0px 2px 23px 6px #888;
+  
+   }
+.img {
+    position: absolute;
+    max-width: 100%;
+    height: 300px;
+    display: inline-block;
+  
+}
+
+button, img, legend {
+    border: 0;
+}
+
+.data{
+    
+    background: #0c9463;
+    float: right;
+    display: inline;
+    color: #ffff;
+    padding: 50px 0;
+    border-radius: 20px;
+
+
+
+}
+.column {
+  position: relative;
+  float: left;
+  width: 33%;
+  padding-left: 350px;
+  padding-top: 50px;
+
+}
+.column1 {
+  float: right;
+  width: 60%;
+  margin-left: -100px;
+  padding-left: 0;
+
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: inline-block;
+
+}
+</style>
+<h1 class="font-regular bold pt-5 text-black font-45" align="center">About Us</h1>
+<p style="font-size: 20px; padding-left: 16px;" > This Project <strong>"Smart Agriculture and Farmers Assistance system " </strong> developed by four alumni of the reputed <strong> "Smt. Kashibai Navale College Of Engineering,Pune"</strong>, with an objective to provide end-to-end solutions and services to the farming community in India and bring together a agriculture Revolution in India.The Core idea behind this application has always been to resolve issues within an Indian farming ecosystem through modern technology by bringing together entire list of agricultural offerings under a single integrated platform.
+	 </p>
+		 <br>
+<br>
+<p style="font-size: 20px; padding-left: 16px;">This is a technology based B2F(Business to Farmer) platform which offer full stack agricultural service ,including high quality crop prediction, customised farm advisory through khetibook, market linkage for farmers to sell their produce,a weather api to know weather stats and access to the financial services and insurance.
+</p>
+<div class="col-md-12 pb-5 ">
+				<h1 class="font-regular bold pt-5 color-black font-35" align="center">Why join us? </h1>
+			</div>
+<div class="row">
+    <div class="column">
+        <img src="/static/S2.jpg" class="rounded-borders">
+</div>            
+<div class="column1">
+    <div class="data">
+				<p style="padding-left: 130px; font-size: xx-large; font-weight: bolder;">Shubhanshu, CEO </p>
+                
+				<p style="padding-left: 130px;">
+					Join us on our way to bring revolution to the agriculture sector. It’s high time to help those who left no stone unturned from the early hour of dawn till well past dusk to bring food on our plates. With a little help from Our Application, farmers’ life can become a lot easier and more prosperous.
+				</p>
+			</div>
+</div>
+</div>
+
+{% endblock body %}

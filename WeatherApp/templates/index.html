@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Weather-Forecast{% endblock title %}
+{% block body %}
+  <!-- Latest compiled and minified CSS -->
+<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"-->
+
+<!-- jQuery library -->
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script-->
+
+<!-- Latest compiled JavaScript -->
+<!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script-->
+
+<link rel="stylesheet" href="/static/css/style2.css" type="text/css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<h4 id="weather-body">Weather Forecast</h4> 
+  
+  <br />
+  <br />
+
+
+
+  <div class ="w-body" >
+  <center class="row1">
+    <form action="" method="post" class="search">
+      {% csrf_token %}
+      <div class="input1">
+        <input type="text" class="search-box" name="city" placeholder="Search">
+          <button class="search-btn" type="submit">
+            Submit
+          </button>
+      </div>
+    </form>
+  </center>
+
+  <div class="row2">
+    {% if city is not None %}
+    <div>
+      <h1>{{city | capfirst}}</h1>
+      <div id = 'desc'><h3>Description: {{data.weather_description | capfirst}}</h3>
+        <div id = 'imageContainer'><img src = 'http://openweathermap.org/img/w/{{data.weather_icon}}.png'></div>
+        </div>
+        <h3>Temperature: {{data.weather_temperature}}°C</h3>
+        <h3>Pressure: {{data.weather_pressure}}</h3>
+        <h3>Humidity: {{data.weather_humidity}}</h3>
+    </div>
+    {% endif %}
+  </div>
+</div>
+   </div>
+{% endblock body %}
+

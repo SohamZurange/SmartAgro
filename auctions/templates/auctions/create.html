@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="/static/css/style2.css" type="text/css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<h1 style="padding-top: 30px;">Create Auction</h1>
+<div class="wrapper">
+    <form action="{% url 'auctions:create' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if error_message %}<p class="error"><strong>{{ error_message }}</strong></p>{% endif %}
+        <span>Enter Name of Crop</span>
+        <span class="required_field" >*</span>
+        <br>
+        <input class="textbox" type="text" name="title">
+        <br>
+        <br>
+        <span>Enter Description: ( Quantity & Quality )</span>
+        <br>
+        <input class="description_box" type="text" name="description">
+        <br>
+        <br>
+        <span>Upload Crop Picture:</span>
+        <br>
+        <input class="textbox" type="file" accept="image/*" name="image">
+        <br>
+        <br>
+        <span>Enter Minimum Value:</span>
+        <span class="required_field" >*</span>
+        <br>
+        <input class="textbox" type="text" name="min_value">
+        <br>
+        <br>
+        <span>Enter Auction Duration: ( In Minutes )</span>
+        <span class="required_field" >*</span>
+        <br>
+        <input class="textbox" type="text" name="AUCTION_DURATION">
+        <br>
+        <br>
+        <input type="submit" class="submit_button" name="submit_button" value="Create">
+    </form>
+</div>
+{% endblock %}

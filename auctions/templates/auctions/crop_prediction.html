@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/style2.css" type="text/css">
+
+<div class="crop-img">
+<h1 class="text-center">Crop Prediction</h1>
+
+
+
+
+<div class="wrapper" style="text-align: center;" >
+
+    {% if not result %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {% if error_message %}<span class="error"><strong>{{ error_message }}</strong></span><br><br>{% endif %}
+        <div class="box-left">
+        <span>Temperature of the region</span>
+        <span class="required_field" >*</span>
+        <br>
+        <input class="textbox" type="text" name="T">
+        <br>
+        <br>
+
+        <span>Wind Speed of the region</span>
+        <span class="required_field" >*</span>
+        <br>
+        <input class="textbox" type="text" name="WS">
+        <br>
+        <br>
+
+        <span>Pressure of the region</span>
+        <span class="required_field" >*</span>
+        <br>
+        <input class="textbox" type="text" name="pre">
+        <br>
+        <br>
+
+        
+        <span>Humidity of the region</span>
+        <span class="required_field" >*</span>
+        <br>
+        <input class="textbox" type="text" name="H">
+        <br>
+        <br>
+        </div>
+        <div class="box-right">
+        <span>Nitrogen Value of the Soil</span>
+        <span class="required_field" >*</span>
+        <br>
+        <input class="textbox" type="text" name="N">
+        <br>
+        <br>
+
+        <span>Phosphorus Value of the Soil</span>
+        <span class="required_field" >*</span>
+        <br>
+        <input class="textbox" type="text" name="P">
+        <br>
+        <br>
+
+        <span>Potassium Value of the Soil</span>
+        <span class="required_field" >*</span>
+        <br>
+        <input class="textbox" type="text" name="K">
+        <br>
+        <br>
+
+
+        <span>Select Type of Soil</span>
+        <span class="required_field" >*</span>
+        <br>
+                  <select name="selected_soil" id="selected_soil">
+                    {% for selected_soil in soil_list %}
+                    <option value={{selected_soil}}>{{selected_soil}}</option>                    
+                    {% endfor %}
+                  </select>
+        <br>
+        <br>
+        <br>
+        <br>
+        </div>
+
+        <input type="submit" class="submit_button1" name="submit_button" value="Submit">
+    </form>
+
+    {% else %}
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="wrapper1" style="text-align: center;" >
+
+        <div class="row justify-content-center mt-5 ">
+            <div class="col-md-5">
+        
+        
+                <table id="customers">
+
+                    
+                <tr>
+                    <td>Temperature</td>
+                    <td>{{T}}</td>
+                </tr>
+
+                <tr>
+                    <td>Windspeed</td>
+                    <td>{{WS}}</td>
+                </tr>
+                
+                <tr>
+                    <td>Pressure</td>
+                    <td>{{pre}}</td>
+                </tr>
+
+
+                <tr>
+                    <td> Humidity </td>
+                    <td> {{H}} </td>
+                </tr>
+        
+                <tr>
+                    <td> Nitrogen </td>
+                    <td>{{N}}</td>
+                </tr>
+        
+                <tr>
+                    <td> Phosphorus </td>
+                    <td>{{P}}</td>
+                </tr>
+        
+                <tr>
+                    <td> Potassium </td>
+                    <td>{{K}}</td>
+                </tr>
+        
+                <tr>
+                    <td> Soil Type </td>
+                    <td> {{selected_soil}}</td>
+                </tr>
+        
+                <tr>
+                    <th> Best Suitable Crop Predicted From Your Input </th>
+                    <th> {{result}} </th>
+        
+                </tr>
+               
+            
+                </table>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    
+    {% endif %}
+
+</div>
+</div>
+{% endblock %}
